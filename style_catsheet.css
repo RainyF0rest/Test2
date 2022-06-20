@@ -1,0 +1,45 @@
+.saillist{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #f1f6f7;
+    padding: 1%;
+    margin: 3%;
+    font-size: 120%;
+    height: 10%;
+}
+
+.secondlist{
+background-color: #f1f6f7;
+position:absolute;
+width: 20%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+font-size: 120%;
+}
+
+.content{
+position: absolute;
+right: 0px;
+width: 80%;
+font-size: 130%;
+}
+
+body{
+text-align: center;
+background-color: #78C2C4;
+font-family: 'Courier New', Courier, monospace;
+}
+.indexcat{
+width: 30%; 
+margin: 5%;
+}
+.giphy-embed{
+margin: 1%;
+}
+
+button{
+margin: 1%;
+}
