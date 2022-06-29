@@ -7,6 +7,7 @@
     margin: 3%;
     font-size: 120%;
     height: 10%;
+    flex-wrap:wrap;
 }
 
 .secondlist{
@@ -18,6 +19,7 @@ display: flex;
 flex-direction: column;
 justify-content: space-around;
 font-size: 120%;
+flex-wrap: wrap;
 }
 
 .content{
@@ -29,7 +31,7 @@ font-size: 130%;
 
 body{
 text-align: center;
-background-color: #78C2C4;
+background:linear-gradient(300deg,#78C2C4 , rgb(178, 203, 212));
 font-family: 'Courier New', Courier, monospace;
 }
 .indexcat{
