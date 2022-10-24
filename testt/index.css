@@ -1,0 +1,22 @@
+#time{
+color:white;
+background-color: darkblue;
+padding:8px;
+font-size: 25px;
+width: 100%;
+height: 30%;
+}
+
+.white{
+color: black;
+background-color: white;
+padding:8px;
+font-size: 28px;
+font-weight: bold;
+width: 100%;
+height: 35%;
+}
+
+.blue{
+    background-color:rgb(87, 204, 233);
+    }

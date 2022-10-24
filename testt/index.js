@@ -12,13 +12,24 @@ HOK:"香港"
 //QuickPath
 const Info=Json.data["AEL-HOK"].UP
 const currTime=Json.curr_time;
-const timeNow=new Date(currTime)
-console.log(timeNow)
+const options={
+    hour:"numeric",
+    minute:"numeric",
+}
+const timeNow=new Date(currTime).toLocaleString("th-THAI",options);
 
-let result=`<div>${timeNow}</div>`
+let result=`<div id="time" >香港    ${timeNow}</div>`
 
 for(let eachTrain of Info){
-result+=`<div>${STA_NAME[eachTrain.dest]}  ${eachTrain.plat}  ${calTTNT(currTime,eachTrain.time)}</div>`
+const isEvenNumber=eachTrain.seq%2===0;
+console.log(eachTrain.seq%2===0)
+let css="";
+if(isEvenNumber){
+    css="white blue"
+}else{
+    css="white"
+}
+result+=`<div class="${css}">${STA_NAME[eachTrain.dest]}  ${eachTrain.plat}  ${calTTNT(currTime,eachTrain.time)}</div>`
 
 }
 
