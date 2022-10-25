@@ -18,7 +18,7 @@ const options={
 }
 const timeNow=new Date(currTime).toLocaleString("th-THAI",options);
 
-let result=`<div id="time" >香港    ${timeNow}</div>`
+let result=`<div id="time" ><div id="placeName">香港</div>    <div id="timeNow">${timeNow}</div></div>`
 
 for(let eachTrain of Info){
 const isEvenNumber=eachTrain.seq%2===0;
@@ -29,7 +29,7 @@ if(isEvenNumber){
 }else{
     css="white"
 }
-result+=`<div class="${css}">${STA_NAME[eachTrain.dest]}  ${eachTrain.plat}  ${calTTNT(currTime,eachTrain.time)}</div>`
+result+=`<div class="${css}"><div id="staName">${STA_NAME[eachTrain.dest]}</div>  <div id="plat">${eachTrain.plat}</div>  <div id="timeLeft">${calTTNT(currTime,eachTrain.time)}</div></div>`
 
 }
 
