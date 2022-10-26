@@ -15,9 +15,10 @@ border: 5px black solid;
 #msg-wrapper{
 padding:10px;
 background-color: rgba(0, 0, 0, 0.4);
-margin: 5% 0 0 5%;
+margin: 10% 0 0 5%;
 width: 40vw;
 min-width: 350px;
+
 }
 
 #time{
@@ -70,4 +71,9 @@ display: flexbox;
 
 #timeLeft{
 text-align:right;
+}
+
+.selfBG{
+background-color: hotpink!important;
+
 }
