@@ -1,0 +1,82 @@
+body{
+background-image: url(https://www.highspeed.mtr.com.hk/res/media/web/guide/wek/MTR-train.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+height: 100vh;
+background-position: right;
+background-attachment: fixed;
+}
+
+#up-msg,#down-msg{
+display: block;
+border: 5px black solid;
+}
+
+#msg-wrapper{
+padding:10px;
+background-color: rgba(0, 0, 0, 0.4);
+margin: 10% 0 0 5%;
+width: 45vw;
+min-width: 350px;
+
+}
+
+#time{
+color:white;
+background-color: darkblue;
+padding:8px;
+font-size: 25px;
+display: grid;
+grid-template-columns: 20% 50% auto;
+}
+
+#timeNow{
+text-align: right;
+grid-column: 3/4;
+padding: 3px;
+}
+
+#placeName{
+padding: 3px;
+}
+
+.white{
+color: black;
+background-color: white;
+padding:8px;
+font-size: 28px;
+font-weight: bold;
+height: 60%;
+display: grid;
+grid-template-columns:30% 20% 20% 30%;
+align-items: center;
+}
+
+.blue{
+    background-color:rgb(87, 204, 233);
+    }
+
+#plat{
+background-color: rgb(222, 101, 188);
+border-radius: 50%;
+width: 40px;
+text-align: center;
+color: white;
+grid-column: 3/4;
+}
+
+#staName{
+display: flexbox;
+}
+
+#timeLeft{
+text-align:right;
+}
+
+.selfBG{
+background-color: hotpink!important;
+}
+
+.selfBG2{
+    background-color: rgb(235, 89, 162)!important;
+    }
