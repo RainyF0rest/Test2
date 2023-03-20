@@ -4,27 +4,34 @@ async function getInfo(sta){
     const CarData = await fetch(`https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=AEL&sta=${sta}` )
     const Json = await CarData.json()
     console.log(Json)    
+
     //Translate code into words
-    const STA_NAME={
-AWE:"博覧館",
-HOK:"香港",
-KOW:"九龍",
-TSY:"青衣",
-AIR:"機場"
+    const STA_NAME=
+    {
+        AWE:"博覧館",
+        HOK:"香港",
+        KOW:"九龍",
+        TSY:"青衣",
+        AIR:"機場"
     }
+
 //QuickPath
- let Info=""
-let upInfo=[];
-if (Json.data[`AEL-${sta}`].UP){
+    let Info=""
+    let upInfo=[];
+
+if (Json.data[`AEL-${sta}`].UP)
+    {
     upInfo=Json.data[`AEL-${sta}`].UP
     }
-let downInfo=[];
-if (Json.data[`AEL-${sta}`].DOWN){
+
+    let downInfo=[];
+if (Json.data[`AEL-${sta}`].DOWN)
+    {
     downInfo=Json.data[`AEL-${sta}`].UP
     }
 
     const currTime=Json.curr_time;
-const options={
+    const options={
     hour:"numeric",
     minute:"numeric",
 }
