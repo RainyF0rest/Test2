@@ -1,17 +1,4 @@
-//clock update continguosly
-setInterval( getTime, 1000 ) ;
-function getTime()
-{
-    const ckOption = {
-                        hour : "numeric",
-                        minute : "numeric",
-                        second : "numeric"
-                    }
 
-
-    let timeNow = new Date;
-    document.getElementById("curHour").innerHTML = new Date(timeNow).toLocaleString ( 'en-US' , ckOption);    
-}
 
 
 
@@ -99,6 +86,22 @@ async function getWeather()
     document.getElementById("curTime").innerHTML = new Date(today).toLocaleString ( 'en-US' , options);   
     document.getElementById("zone").innerHTML = Json.timezone;  
 
+    //clock update continguosly
+    setInterval( getTime, 1000 ) ;
+    function getTime()
+    {
+        const ckOption = {
+                            hour : "numeric",
+                            minute : "numeric",
+                            second : "numeric"
+                        }
+
+
+        let timeNow = new Date;
+        document.getElementById("curHour").innerHTML = new Date(timeNow).toLocaleString ( 'en-US' , ckOption);    
+    }
+
+    getTime();
     //today forcast(update every 5min)
     setInterval( getToday, 300000 ) ;
     function getToday()
@@ -130,14 +133,34 @@ async function getWeather()
 	{
 
         //branches tb continue
-        if (wmo_six[i] == 0)
-            {
-                daily_icon = sunny_icon;
-            }
-            else
-            {
-                daily_icon = cloudy_icon;
-            }
+        if ( wmo_six[i] == 0)
+        {
+            daily_icon = sunny_icon;
+        }
+        else if ( wmo_six[i] == 1 || wmo_six[i] == 2 )
+        {
+            daily_icon = cloudSun_icon;
+        }
+        else if ( wmo_six[i] == 3 )
+        {
+            daily_icon = cloudy_icon;
+        }            
+        else if ( wmo_six[i] == 45 || wmo_six[i] == 48 )
+        {
+            daily_icon = foggy_icon;
+        }
+        else if ( wmo_six[i] == 51 || wmo_six[i] == 53 ||  wmo_six[i] == 55 || wmo_six[i] == 56 
+                  || wmo_six[i] == 57 || wmo_six[i] == 61 ||  wmo_six[i] == 63 || wmo_six[i] == 65 
+                  || wmo_six[i] == 66 || wmo_six[i] == 67 ||  wmo_six[i] == 80 || wmo_six[i] == 81 
+                  || wmo_six[i] == 82 )
+        {
+        //need to add more
+            daily_icon = rainny_icon;
+        }
+        else if ( wmo_six[i] == 95 || wmo_six[i] == 96 || wmo_six[i] == 99 )
+        {
+            daily_icon = thunderRain_icon;
+        }
 
       result +=  `<div id = "forecast"><span>${daily_icon}</span>
                   <span>${down_icon}${min_tem[i]}${cel}</span> - <span>${upper_icon}${max_tem[i]}${cel}</span>
@@ -148,5 +171,5 @@ async function getWeather()
 
 }
 
-getTime();
+
 getWeather();
