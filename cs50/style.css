@@ -1,7 +1,29 @@
-#forecast{
+#forecast
+{
     display: block;
     margin: 3%;
     background-color: rgb(219, 219, 219);
-    text-align: center;
+    text-align: right;
     padding: 3%;
+}
+#today
+{
+    background-color: #d6e2af;
+    text-align: center;
+    border-radius: 15px;
+    padding: 2%;
+    margin: 3%;
+}
+#today-icon
+{
+    font-size: 2rem; 
+    color: cornflowerblue;
+}
+span
+{
+    margin : 2%;
+}
+.icon
+{
+    margin : 1%;
 }

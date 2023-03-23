@@ -26,6 +26,11 @@ async function getWeather()
                         hour : "numeric",
                         minute : "numeric" 
                     }
+
+    const weekdayOp = {
+                        weekday : "long"
+                      }
+
     const today = Json.daily.time[0];
     const now = new Date;
 
@@ -64,7 +69,7 @@ async function getWeather()
                            <path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0v-1zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708l.707-.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708l-.708-.707zm1.734 3.374a2 2 0 1 1 3.296 2.198c.199.281.372.582.516.898a3 3 0 1 0-4.84-3.225c.352.011.696.055 1.028.129zm4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377zM14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
                            </svg>`;
 
-    const rainny_icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-rain-heavy-fill" viewBox="0 0 16 16">
+    const heavyRain_icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-rain-heavy-fill" viewBox="0 0 16 16">
                          <path d="M4.176 11.032a.5.5 0 0 1 .292.643l-1.5 4a.5.5 0 0 1-.936-.35l1.5-4a.5.5 0 0 1 .644-.293zm3 0a.5.5 0 0 1 .292.643l-1.5 4a.5.5 0 0 1-.936-.35l1.5-4a.5.5 0 0 1 .644-.293zm3 0a.5.5 0 0 1 .292.643l-1.5 4a.5.5 0 0 1-.936-.35l1.5-4a.5.5 0 0 1 .644-.293zm3 0a.5.5 0 0 1 .292.643l-1.5 4a.5.5 0 0 1-.936-.35l1.5-4a.5.5 0 0 1 .644-.293zm.229-7.005a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 10H13a3 3 0 0 0 .405-5.973z"/>
                          </svg>`;
     const foggy_icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-fog2-fill" viewBox="0 0 16 16">
@@ -80,7 +85,10 @@ async function getWeather()
                             </svg>`;       
     const moon_icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16">
                        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
-                       </svg>`;                
+                       </svg>`; 
+    const drizzle_icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-drizzle-fill" viewBox="0 0 16 16">
+                         <path d="M4.158 12.025a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm-3.5 1.5a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm.747-8.498a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 11H13a3 3 0 0 0 .405-5.973z"/>
+                         </svg>`;           
 
     //time & zone
     document.getElementById("curTime").innerHTML = new Date(today).toLocaleString ( 'en-US' , options);   
@@ -110,9 +118,41 @@ async function getWeather()
         const cur_uv = Json.hourly.uv_index[0] ;
         const cur_tem = Json.hourly.temperature_2m[0] ;
         const wmo = Json.hourly.weathercode[0] ;
+        let todayWmo = "" ;
+
+        if ( wmo == 0)
+        {
+            todayWmo = sunny_icon;
+        }
+        else if ( wmo == 1 || wmo == 2 )
+        {
+            todayWmo = cloudSun_icon;
+        }
+        else if ( wmo == 3 )
+        {
+            todayWmo = cloudy_icon;
+        }            
+        else if ( wmo == 45 || wmo == 48 )
+        {
+            todayWmo = foggy_icon;
+        }
+        else if ( wmo == 65 || wmo == 67 ||  wmo == 80 || wmo == 81 
+                  || wmo == 82 )
+        {
+            todayWmo = heavyRain_icon;
+        }
+        else if ( wmo == 95 || wmo == 96 || wmo == 99 )
+        {
+            todayWmo = thunderRain_icon;
+        }
+        else if (  wmo == 51 || wmo == 53 ||  wmo == 55 || wmo == 56 
+                || wmo == 57 || wmo == 61 ||  wmo  == 63 || wmo == 66)
+        {
+            todayWmo = drizzle_icon;
+        }
 
             document.getElementById("today").innerHTML = `<div id = "today">
-                                                            <div id = "todayIcon">${sunny_icon}</div>   
+                                                            <div id = "todayIcon">${todayWmo}</div>   
                                                             <div>${cur_tem} ${ cel }</div>
                                                             <div>UV Index ${cur_uv}</div>
                                                             <div>${sunrise_icon}${sunrise} ${sunset_icon}${sunset}</div> 
@@ -126,13 +166,18 @@ async function getWeather()
     const min_tem = Json.daily.temperature_2m_min ;
     const max_tem = Json.daily.temperature_2m_max ;
     const wmo_six = Json.daily.weathercode ;
+    const day = Json.daily.time ;
 
     let daily_icon = "" ;
     let result = "";
+    let weekday = "";
+
     for (let i = 1; i < length; i++) 
 	{
+        
+        weekday = new Date(day[i]) . toLocaleString( 'en-US' , weekdayOp );
 
-        //branches tb continue
+        //wmocode to icon branches 
         if ( wmo_six[i] == 0)
         {
             daily_icon = sunny_icon;
@@ -149,27 +194,31 @@ async function getWeather()
         {
             daily_icon = foggy_icon;
         }
-        else if ( wmo_six[i] == 51 || wmo_six[i] == 53 ||  wmo_six[i] == 55 || wmo_six[i] == 56 
-                  || wmo_six[i] == 57 || wmo_six[i] == 61 ||  wmo_six[i] == 63 || wmo_six[i] == 65 
-                  || wmo_six[i] == 66 || wmo_six[i] == 67 ||  wmo_six[i] == 80 || wmo_six[i] == 81 
+        else if ( wmo_six[i] == 65 || wmo_six[i] == 67 ||  wmo_six[i] == 80 || wmo_six[i] == 81 
                   || wmo_six[i] == 82 )
         {
         //need to add more
-            daily_icon = rainny_icon;
+            daily_icon = heavyRain_icon;
         }
         else if ( wmo_six[i] == 95 || wmo_six[i] == 96 || wmo_six[i] == 99 )
         {
             daily_icon = thunderRain_icon;
         }
+        else if (  wmo_six[i] == 51 || wmo_six[i] == 53 ||  wmo_six[i] == 55 || wmo_six[i] == 56 
+                || wmo_six[i] == 57 || wmo_six[i] == 61 ||  wmo_six[i] == 63 || wmo_six[i] == 66)
+        {
+            daily_icon = drizzle_icon;
+        }
 
-      result +=  `<div id = "forecast"><span>${daily_icon}</span>
-                  <span>${down_icon}${min_tem[i]}${cel}</span> - <span>${upper_icon}${max_tem[i]}${cel}</span>
-                  <span>${rain_icon}${rain[i]}${pbb}</span></div>`;
+      result +=  `<div id = "forecast"><span>${weekday}</span>
+                 <span id = "icon">${daily_icon}</span>
+                  <span id = "icon">${down_icon}</span><span>${min_tem[i]}${cel}</span> - 
+                  <span id = "icon">${upper_icon}</span><span>${max_tem[i]}${cel}</span>
+                  <span id = "icon">${rain_icon}</span><span>${rain[i]}${pbb}</span></div>`;
     }
 
     document.getElementById("6days").innerHTML = result ;
 
 }
-
 
 getWeather();
