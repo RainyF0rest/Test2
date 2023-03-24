@@ -1,23 +1,39 @@
+#word 
+{
+    font-family:monospace
+}
+
+.word 
+{
+    font-family:monospace
+}
+
 #forecast
 {
     display: block;
     margin: 3%;
-    background-color: rgb(219, 219, 219);
+    background-color: #9cb2bbc7;
     text-align: right;
     padding: 3%;
+    border-radius: 15px;
+    font-family:monospace
 }
 #today
 {
-    background-color: #d6e2af;
+    background-color: #c3d8dc;
     text-align: center;
     border-radius: 15px;
     padding: 2%;
     margin: 3%;
+    font-family:monospace
 }
 #today-icon
 {
     font-size: 2rem; 
-    color: cornflowerblue;
+}
+#blue
+{
+    background-color: #a5c0c6;
 }
 span
 {

@@ -31,6 +31,11 @@ async function getWeather()
                         weekday : "long"
                       }
 
+ 
+    const apmOption = {
+                        hour : "numeric" 
+                     }
+
     const today = Json.daily.time[0];
     const now = new Date;
 
@@ -120,13 +125,31 @@ async function getWeather()
         const wmo = Json.hourly.weathercode[0] ;
         let todayWmo = "" ;
 
+        let apm = new Date(now).getHours();
+
         if ( wmo == 0)
         {
-            todayWmo = sunny_icon;
+            if (apm > 5 && apm < 19 )
+            {
+                todayWmo = sunny_icon;
+            }
+            else 
+            {
+                todayWmo = moon_icon;
+            }
+            
         }
         else if ( wmo == 1 || wmo == 2 )
         {
-            todayWmo = cloudSun_icon;
+            
+            if (apm > 5 && apm < 19 )
+            {
+                todayWmo = cloudSun_icon;
+            }
+            else 
+            {
+                todayWmo = moonCloud_icon;
+            }
         }
         else if ( wmo == 3 )
         {
