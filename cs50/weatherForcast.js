@@ -174,12 +174,12 @@ async function getWeather()
             todayWmo = drizzle_icon;
         }
 
-            document.getElementById("today").innerHTML = `<div id = "today">
+            document.getElementById("today").innerHTML = `
                                                             <div id = "todayIcon">${todayWmo}</div>   
                                                             <div>${cur_tem} ${ cel }</div>
                                                             <div>UV Index ${cur_uv}</div>
                                                             <div>${sunrise_icon}${sunrise} ${sunset_icon}${sunset}</div> 
-                                                            </div>`
+                                                            `
 
     }
     getToday();
@@ -194,11 +194,41 @@ async function getWeather()
     let daily_icon = "" ;
     let result = "";
     let weekday = "";
+    let w_day = "";
 
     for (let i = 1; i < length; i++) 
 	{
         
         weekday = new Date(day[i]) . toLocaleString( 'en-US' , weekdayOp );
+
+        if (weekday == "Monday")
+        {
+            w_day = "MON";
+        }
+        else if (weekday == "Tuesday" )
+        {
+            w_day = "TUE";
+        }
+        else if (weekday == "Wednesday" )
+        {
+            w_day = "WEN";
+        }
+        else if (weekday == "Thursday")
+        {
+            w_day = "THU";
+        }
+        else if (weekday == "Friday")
+        {
+            w_day = "FRI";
+        }
+        else if (weekday == "Saturday")
+        {
+            w_day = "SAT";
+        }
+        else if (weekday == "Sunday")
+        {
+            w_day = "SUN";
+        }
 
         //wmocode to icon branches 
         if ( wmo_six[i] == 0)
@@ -233,9 +263,9 @@ async function getWeather()
             daily_icon = drizzle_icon;
         }
 
-      result +=  `<div id = "forecast"><span>${weekday}</span>
+      result +=  `<div id = "forecast"><span id = "weekday">${w_day}</span>
                  <span id = "icon">${daily_icon}</span>
-                  <span id = "icon">${down_icon}</span><span>${min_tem[i]}${cel}</span> - 
+                  <span id = "icon">${down_icon}</span><span>${min_tem[i]}${cel}</span>  
                   <span id = "icon">${upper_icon}</span><span>${max_tem[i]}${cel}</span>
                   <span id = "icon">${rain_icon}</span><span>${rain[i]}${pbb}</span></div>`;
     }

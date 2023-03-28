@@ -7,12 +7,18 @@
 {
     font-family:monospace
 }
+.weekday
+{
+    flex-basic: 200px;
+}
 
 #forecast
 {
-    display: block;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
     margin: 3%;
-    background-color: #9cb2bbc7;
+    background-color: rgba(156, 178, 187, 0.5);
     text-align: right;
     padding: 3%;
     border-radius: 15px;
@@ -20,16 +26,12 @@
 }
 #today
 {
-    background-color: #c3d8dc;
+    background-color: rgba(195, 216, 220, 0.7);
     text-align: center;
     border-radius: 15px;
     padding: 2%;
     margin: 3%;
     font-family:monospace
-}
-#today-icon
-{
-    font-size: 2rem; 
 }
 #blue
 {
@@ -37,7 +39,7 @@
 }
 span
 {
-    margin : 2%;
+    margin : 1%;
 }
 .icon
 {
