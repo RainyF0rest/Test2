@@ -18,7 +18,7 @@
     flex-wrap: nowrap;
     justify-content: space-evenly;
     margin: 3%;
-    background-color: rgba(156, 178, 187, 0.5);
+    background-color: rgb(157, 179, 189);
     text-align: right;
     padding: 3%;
     border-radius: 15px;
@@ -35,7 +35,7 @@
 }
 #blue
 {
-    background-color: #a5c0c6;
+    background-color: rgb(165, 192, 198);
 }
 span
 {

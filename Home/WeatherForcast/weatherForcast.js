@@ -271,10 +271,30 @@ async function getWeather()
 
 }
 
-function blackMode()
+function mode(color)
 {
+    if  (color == "white")
+    {
+        document.body.style.backgroundImage = "url('')";
+        document.body.style.backgroundColor = "white";
+    }
+    else if (color == "blue")
+    {
+        
+        document.body.style.backgroundImage = "url('https://img.freepik.com/free-photo/white-cloud-blue-sky_74190-7709.jpg?w=1480&t=st=1680014111~exp=1680014711~hmac=6071c5c475be776e9d97968e955f21389cf3189130cdf24d018608c307681e89'),url('https://img.freepik.com/free-vector/rainfall-drops-black-background_1017-33594.jpg?w=1060&t=st=1680013936~exp=1680014536~hmac=b4094fa26365e78e1eaf8af1ae86935dd8f0b0f87b2df0fb8680150becbd899e')";
+    }
+    else if (color == "black")
+    {
+        document.body.style.backgroundImage = "url('')";
+        document.body.style.backgroundColor =  "black";
+    }
+    else if (color == "default")
+    {
+        document.getElementById("navBar").style.backgroundColor = "rgb(165, 192, 198)";
+        document.body.style.backgroundImage = "url('')";
+        document.body.style.backgroundColor = "rgb(131, 164, 169)";
+    }
     
-    document.body.style.backgroundImage = "url('https://img.freepik.com/free-photo/white-cloud-blue-sky_74190-7709.jpg?w=1480&t=st=1680014111~exp=1680014711~hmac=6071c5c475be776e9d97968e955f21389cf3189130cdf24d018608c307681e89'),url('https://img.freepik.com/free-vector/rainfall-drops-black-background_1017-33594.jpg?w=1060&t=st=1680013936~exp=1680014536~hmac=b4094fa26365e78e1eaf8af1ae86935dd8f0b0f87b2df0fb8680150becbd899e')";
 }
 
 getWeather();
