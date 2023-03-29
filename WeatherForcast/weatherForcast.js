@@ -1,7 +1,3 @@
-
-
-
-
 async function getWeather()
 {
     //download API , tansform into Json 
@@ -115,6 +111,7 @@ async function getWeather()
     }
 
     getTime();
+
     //today forcast(update every 5min)
     setInterval( getToday, 300000 ) ;
     function getToday()
@@ -272,6 +269,12 @@ async function getWeather()
 
     document.getElementById("6days").innerHTML = result ;
 
+}
+
+function blackMode()
+{
+    
+    document.body.style.backgroundImage = "url('https://img.freepik.com/free-photo/white-cloud-blue-sky_74190-7709.jpg?w=1480&t=st=1680014111~exp=1680014711~hmac=6071c5c475be776e9d97968e955f21389cf3189130cdf24d018608c307681e89'),url('https://img.freepik.com/free-vector/rainfall-drops-black-background_1017-33594.jpg?w=1060&t=st=1680013936~exp=1680014536~hmac=b4094fa26365e78e1eaf8af1ae86935dd8f0b0f87b2df0fb8680150becbd899e')";
 }
 
 getWeather();
