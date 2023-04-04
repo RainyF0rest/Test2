@@ -1,11 +1,11 @@
 #word 
 {
-    font-family:monospace
+    font-family:monospace;
 }
 
 .word 
 {
-    font-family:monospace
+    font-family:monospace;
 }
 .weekday
 {
@@ -18,7 +18,7 @@
     flex-wrap: nowrap;
     justify-content: space-evenly;
     margin: 3%;
-    background-color: rgb(157, 179, 189);
+    background-color: rgb(168, 190, 199);
     text-align: right;
     padding: 3%;
     border-radius: 15px;
@@ -44,4 +44,13 @@ span
 .icon
 {
     margin : 1%;
+}
+.bar
+{
+    background-color: rgb(165, 192, 198);
+}
+
+.test
+{
+    background-color: rgb(190, 202, 226);
 }
