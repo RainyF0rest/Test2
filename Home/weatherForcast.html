@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forcast</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="weatherForcast_style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body style = "background-color : rgb(131, 164, 169);">
@@ -29,9 +29,16 @@
                 <span id = "zone" class = "word" ></span>
             </a>
             <ul class="dropdown-menu" >
-              <li><a class="dropdown-item word" href="#">Action</a></li>
-              <li><a class="dropdown-item word" href="#">Action </a></li>
-              <li><a class="dropdown-item word" onclick = getWeather(auto) href="#">Auto </a></li>
+              <li><a class="dropdown-item word" onclick = "getWeather('Europe%2FLondon')" href="#">Europe/London</a></li>
+              <li><a class="dropdown-item word" onclick = "getWeather('Europe%2FBerlin')" href="#">Europe/Berlin </a></li>
+              <li><a class="dropdown-item word" onclick = "getWeather('Europe%2FMoscow')" href="#">Europe/Moscow </a></li>
+              <li><a class="dropdown-item word" onclick = "getWeather('Asia%2FBangkok')" href="#">Asia/Bangkok </a></li>
+              <li><a class="dropdown-item word" onclick = "getWeather('Asia%2FSingapore')" href="#">Asia/Singapore </a></li>
+              <li><a class="dropdown-item word" onclick = "getWeather('Asia%2FTokyo')" href="#">Asia/Tokyo </a></li>
+              <li><a class="dropdown-item word" onclick = "getWeather('America%2FLos_Angeles')" href="#">America/Los_Angeles </a></li>
+              <li><a class="dropdown-item word" onclick = "getWeather('America%2FChicago')" href="#">America/Chicago </a></li>
+              <li><a class="dropdown-item word" onclick = "getWeather('Australia%2FSydney')" href="#">Australia/Sydney </a></li>
+              <li><a class="dropdown-item word" onclick = "getWeather('auto')" href="#">Auto </a></li>
             </ul>
           </li>
         </li>
